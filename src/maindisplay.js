@@ -1,9 +1,22 @@
 import React from "react";
 import styled from 'styled-components';
 
+
+const StyledBackground = styled.div `
+    background-image: url('https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1493&q=80');
+    display: flex;
+    justify-content: center;
+    height: 100%;
+`
+
 const StyledDisplay = styled.div `
     background-color: ${pr => pr.theme.darkness};
     color: ${pr => pr.theme.textColor};
+    width: 75%;
+
+    img {
+        width: 75%;
+    }
 `
 
 
@@ -15,6 +28,7 @@ const MainDisplay = (props) => {
     
 
     return (
+        <StyledBackground>
         <StyledDisplay>
             <h1>From the awesome people at NASA:</h1>
             <h2>{apiData.title}</h2>
@@ -24,6 +38,7 @@ const MainDisplay = (props) => {
             <button>Find out!</button>
             <p>{apiData.explanation}</p>
         </StyledDisplay>
+        </StyledBackground>
 
     )
 };
