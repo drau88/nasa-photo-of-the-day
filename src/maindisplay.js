@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from 'styled-components';
 
 
@@ -23,9 +23,19 @@ const StyledDisplay = styled.div `
 const MainDisplay = (props) => {
 
     const { apiData } = props;
+    const [buttonClicked, setButtonClicked] = useState(false);
+    const [buttonText, setButtonText] = useState('Find out!');
     console.log(props);
 
-    
+    const clickButton = () => {
+        if (buttonClicked !== true){
+            setButtonClicked(true);
+            setButtonText('Close');
+        } else {
+            setButtonClicked(false);
+            setButtonText('Find out!');
+        }
+    };
 
     return (
         <StyledBackground>
@@ -35,8 +45,8 @@ const MainDisplay = (props) => {
             <img src={apiData.url} alt='Amazing space pic'></img>
             <h2>Credit goes to: {apiData.copyright} </h2>
             <h2>What am I looking at?</h2>
-            <button>Find out!</button>
-            <p>{apiData.explanation}</p>
+            <button onClick={clickButton}>{buttonText}</button>
+           { buttonClicked ? <p>{apiData.explanation}</p> : <p></p> }
         </StyledDisplay>
         </StyledBackground>
 
