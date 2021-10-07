@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import axios from 'axios';
-import MainDisplay from './maindisplay';
+import MainDisplay from './Maindisplay';
 
 
 
@@ -22,10 +22,7 @@ useEffect(() => {
 
   return (
     <div className="App">
-      <p>
-        Read through the instructions in the README.md file to build your NASA
-        app! Have fun <span role="img" aria-label='go!'>🚀</span>!
-      </p>
+
       <MainDisplay apiData={apiData}></MainDisplay>
     </div>
   );
